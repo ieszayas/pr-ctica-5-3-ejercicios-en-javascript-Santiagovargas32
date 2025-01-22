@@ -1,0 +1,30 @@
+body {
+    background-color: #474163;
+}
+
+.service-icon {
+    font-size: 3rem;
+}
+
+.service-icon.car {
+    color: #007bff;
+    /* Azul para Car Front */
+}
+
+.service-icon.tools {
+    color: #28a745;
+    /* Verde para Tools */
+}
+
+.service-icon.star {
+    color: #ffc107;
+    /* Amarillo para Star */
+}
+
+.text-center {
+    color: white;
+}
+
+.mb-3 {
+    color: white;
+}
