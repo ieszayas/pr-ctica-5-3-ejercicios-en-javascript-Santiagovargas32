@@ -28,3 +28,102 @@ body {
 .mb-3 {
     color: white;
 }
+
+/* Estilo general del modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #333333;
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #555555;
+}
+
+body.dark-mode .service-icon.car {
+    color: #007bff;
+}
+
+body.dark-mode .service-icon.tools {
+    color: #28a745;
+}
+
+
+/* Botón en modo claro */
+#themeToggle {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    border: 1px solid #000000; /* Borde negro */
+}
+
+/* Botón en modo claro al pasar el ratón */
+#themeToggle:hover {
+    background-color: #e9ecef; /* Fondo gris claro */
+    color: #000000;
+    border-color: #000000;
+}
+
+/* Estilo general del modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .navbar {
+    background-color: #333333;
+}
+
+body.dark-mode .nav-link {
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #555555;
+}
+
+/* Botón en modo oscuro */
+body.dark-mode #themeToggle {
+    background-color: #333333; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #ffffff; /* Borde blanco */
+}
+
+/* Botón en modo oscuro al pasar el ratón */
+body.dark-mode #themeToggle:hover {
+    background-color: #444444; /* Fondo gris un poco más claro */
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+#clock {
+    font-size: 1rem; /* Tamaño del texto */
+    font-weight: bold;
+    color: inherit; /* Se adapta al modo oscuro/claro */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+}
+
+#navbarLogo {
+    width: 40px; /* Ancho del logo */
+    height: auto; /* Mantén la proporción */
+    margin-right: 8px; /* Espacio entre el logo y el texto */
+}
+
+

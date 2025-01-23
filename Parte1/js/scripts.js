@@ -76,3 +76,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggleButton = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // Función para cambiar entre modos
+    function toggleTheme() {
+        if (body.classList.contains("dark-mode")) {
+            body.classList.remove("dark-mode");
+            themeToggleButton.textContent = "Modo Oscuro";
+            themeToggleButton.classList.replace("btn-outline-light", "btn-outline-dark");
+            localStorage.setItem("theme", "light");
+        } else {
+            body.classList.add("dark-mode");
+            themeToggleButton.textContent = "Modo Claro";
+            themeToggleButton.classList.replace("btn-outline-dark", "btn-outline-light");
+            localStorage.setItem("theme", "dark");
+        }
+    }
+
+    // Cargar el tema desde localStorage
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        themeToggleButton.textContent = "Modo Claro";
+        themeToggleButton.classList.replace("btn-outline-dark", "btn-outline-light");
+    }
+
+    // Evento al hacer clic en el botón
+    themeToggleButton.addEventListener("click", toggleTheme);
+});
+
+function updateClock() {
+    const clock = document.getElementById("clock");
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    clock.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Inicia el reloj y actualízalo cada segundo
+setInterval(updateClock, 1000);
+updateClock(); // Llamada inicial
