@@ -126,4 +126,52 @@ body.dark-mode #themeToggle:hover {
     margin-right: 8px; /* Espacio entre el logo y el texto */
 }
 
+.card img {
+    object-fit: cover;
+    height: 200px; /* Ajusta la altura de las imágenes */
+}
+
+.card-body {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+h1.display-4 {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#modalImage {
+    object-fit: cover;
+    height: 100%;
+}
+
+.carousel-item img {
+    cursor: pointer;
+}
+
+#changeImagesBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* Asegúrate de que el botón esté encima de la imagen */
+}
+
+#changeImagesBtn i {
+    transition: transform 0.3s;
+}
+
+#changeImagesBtn:hover i {
+    transform: scale(1.1); /* Efecto de hover para agrandar la flecha */
+}
+
+
 

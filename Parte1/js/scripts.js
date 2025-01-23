@@ -46,8 +46,21 @@ document.addEventListener("DOMContentLoaded", function () {
             checkboxError.classList.add("d-none");
         }
 
+        // Validar número de teléfono (que tenga al menos 9 dígitos)
+        const phoneInput = document.getElementById("phone");
+        const phoneError = document.getElementById("phoneError");
+        const phoneRegex = /^[0-9]{9,}$/;  // Asegurarse de que el teléfono tenga al menos 9 dígitos
+        if (!phoneRegex.test(phoneInput.value)) {
+            phoneError.textContent = "El teléfono debe contener al menos 9 dígitos.";
+            phoneError.classList.remove("d-none");
+            isValid = false;
+        } else {
+            phoneError.classList.add("d-none");
+        }
+
         return isValid;
     }
+
 
     // Mostrar Toast con un mensaje específico
     function showToast(message) {
@@ -112,10 +125,43 @@ function updateClock() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, "0");
     const minutes = String(now.getMinutes()).padStart(2, "0");
-    const seconds = String(now.getSeconds()).padStart(2, "0");
-    clock.textContent = `${hours}:${minutes}:${seconds}`;
+    clock.textContent = `${hours}:${minutes}`;
 }
 
 // Inicia el reloj y actualízalo cada segundo
 setInterval(updateClock, 1000);
 updateClock(); // Llamada inicial
+
+// Función para cambiar la imagen del modal cuando se hace clic en una imagen del carrusel
+const carouselImages = document.querySelectorAll('.carousel-item img');
+const modalImage = document.getElementById('modalImage');
+
+carouselImages.forEach(image => {
+    image.addEventListener('click', function () {
+        modalImage.src = this.src; // Cambia la imagen en el modal a la imagen clickeada
+    });
+});
+
+// Función para cambiar dinámicamente las imágenes del carrusel
+const changeImagesBtn = document.getElementById('changeImagesBtn');
+const carouselItems = document.querySelectorAll('.carousel-inner .carousel-item img');
+
+changeImagesBtn.addEventListener('click', function () {
+    console.log('Cambiando imágenes...');
+    // Nuevas fuentes de imagen (puedes usar URLs diferentes o cambiar las que tienes)
+    const newImages = [
+        './media/imagen1.png',
+        './media/imagen2.png',
+        './media/imagen3.png'
+    ];
+
+    // Cambiar las imágenes del carrusel
+    carouselItems.forEach((item, index) => {
+        console.log('Cambiando imagen', index);
+        if (newImages[index]) {
+            console.log('Nueva imagen:', newImages[index]);
+            item.src = newImages[index]; // Actualiza la fuente de la imagen
+        }
+    });
+});
+
