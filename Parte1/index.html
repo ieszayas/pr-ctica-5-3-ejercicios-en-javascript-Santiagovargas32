@@ -51,6 +51,11 @@
                 <div id="clock" class="text-light me-3"></div>
                 <!-- Botón de Modo Oscuro/Claro -->
                 <button id="themeToggle" class="btn btn-outline-light">Modo Oscuro</button>
+                <!-- Campo de búsqueda -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="form-control form-control-sm search-input"
+                        placeholder="Buscar...">
+                </div>
             </div>
         </div>
     </nav>
@@ -242,10 +247,6 @@
                         <small class="text-danger d-none" id="checkboxError">Debe seleccionar al menos un
                             checkbox.</small>
                     </div>
-                    <div class="mb-3 d-flex gap-2">
-                        <button type="submit" class="btn btn-primary w-100" id="submitForm">Enviar</button>
-                        <button type="button" class="btn btn-secondary w-100" id="clearForm">Limpiar</button>
-                    </div>
                 </form>
                 <!-- Toast Container -->
                 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
@@ -298,6 +299,7 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
         <script src="./js/scripts.js"></script>
+    </div>
 </body>
 
 </html>

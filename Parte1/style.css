@@ -1,5 +1,6 @@
 body {
     background-color: #474163;
+    margin: 0;
 }
 
 .service-icon {
@@ -63,14 +64,18 @@ body.dark-mode .service-icon.tools {
 
 /* Botón en modo claro */
 #themeToggle {
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto negro */
-    border: 1px solid #000000; /* Borde negro */
+    background-color: #ffffff;
+    /* Fondo blanco */
+    color: #000000;
+    /* Texto negro */
+    border: 1px solid #000000;
+    /* Borde negro */
 }
 
 /* Botón en modo claro al pasar el ratón */
 #themeToggle:hover {
-    background-color: #e9ecef; /* Fondo gris claro */
+    background-color: #e9ecef;
+    /* Fondo gris claro */
     color: #000000;
     border-color: #000000;
 }
@@ -100,35 +105,46 @@ body.dark-mode .dropdown-item:hover {
 
 /* Botón en modo oscuro */
 body.dark-mode #themeToggle {
-    background-color: #333333; /* Fondo gris oscuro */
-    color: #ffffff; /* Texto blanco */
-    border: 1px solid #ffffff; /* Borde blanco */
+    background-color: #333333;
+    /* Fondo gris oscuro */
+    color: #ffffff;
+    /* Texto blanco */
+    border: 1px solid #ffffff;
+    /* Borde blanco */
 }
 
 /* Botón en modo oscuro al pasar el ratón */
 body.dark-mode #themeToggle:hover {
-    background-color: #444444; /* Fondo gris un poco más claro */
+    background-color: #444444;
+    /* Fondo gris un poco más claro */
     color: #ffffff;
     border-color: #ffffff;
 }
 
 #clock {
-    font-size: 1rem; /* Tamaño del texto */
+    font-size: 1rem;
+    /* Tamaño del texto */
     font-weight: bold;
-    color: inherit; /* Se adapta al modo oscuro/claro */
+    color: inherit;
+    /* Se adapta al modo oscuro/claro */
     display: flex;
-    align-items: center; /* Centrado vertical */
+    align-items: center;
+    /* Centrado vertical */
 }
 
 #navbarLogo {
-    width: 40px; /* Ancho del logo */
-    height: auto; /* Mantén la proporción */
-    margin-right: 8px; /* Espacio entre el logo y el texto */
+    width: 40px;
+    /* Ancho del logo */
+    height: auto;
+    /* Mantén la proporción */
+    margin-right: 8px;
+    /* Espacio entre el logo y el texto */
 }
 
 .card img {
     object-fit: cover;
-    height: 200px; /* Ajusta la altura de las imágenes */
+    height: 200px;
+    /* Ajusta la altura de las imágenes */
 }
 
 .card-body {
@@ -162,7 +178,8 @@ h1.display-4 {
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1000; /* Asegúrate de que el botón esté encima de la imagen */
+    z-index: 1000;
+    /* Asegúrate de que el botón esté encima de la imagen */
 }
 
 #changeImagesBtn i {
@@ -170,8 +187,12 @@ h1.display-4 {
 }
 
 #changeImagesBtn:hover i {
-    transform: scale(1.1); /* Efecto de hover para agrandar la flecha */
+    transform: scale(1.1);
+    /* Efecto de hover para agrandar la flecha */
 }
 
+.table {
+    transition: background-color 0.5s ease;
+}
 
 

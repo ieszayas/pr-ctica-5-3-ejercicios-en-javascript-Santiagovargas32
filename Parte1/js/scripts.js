@@ -137,31 +137,82 @@ const carouselImages = document.querySelectorAll('.carousel-item img');
 const modalImage = document.getElementById('modalImage');
 
 carouselImages.forEach(image => {
+    console.log(image);
     image.addEventListener('click', function () {
+        console.log(this.src);
         modalImage.src = this.src; // Cambia la imagen en el modal a la imagen clickeada
     });
 });
 
-// Función para cambiar dinámicamente las imágenes del carrusel
+// Definir imágenes para el carrusel y el modal
+const newImages = [
+    './media/imagen1.png',
+    './media/imagen2.png',
+    './media/imagen3.png'
+];
+let currentImageIndex = 0; // Índice de la imagen actual
+
+// Función para actualizar la imagen en el modal
+function updateModalImage(index) {
+    console.log("Index: " + index);
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = newImages[index];
+}
+
+carouselImages.forEach((image, index) => {
+    image.addEventListener('click', function () {
+        currentImageIndex = index; // Establecer la imagen actual
+        updateModalImage(currentImageIndex); // Actualizar la imagen del modal
+    });
+});
+
+// Evento para el botón de cambiar imágenes en el modal
 const changeImagesBtn = document.getElementById('changeImagesBtn');
-const carouselItems = document.querySelectorAll('.carousel-inner .carousel-item img');
 
 changeImagesBtn.addEventListener('click', function () {
-    console.log('Cambiando imágenes...');
-    // Nuevas fuentes de imagen (puedes usar URLs diferentes o cambiar las que tienes)
-    const newImages = [
-        './media/imagen1.png',
-        './media/imagen2.png',
-        './media/imagen3.png'
-    ];
+    console.log("Cambiando imagen...");
+    currentImageIndex = (currentImageIndex + 1) % newImages.length; // Pasar a la siguiente imagen (cíclico)
+    updateModalImage(currentImageIndex); // Actualizar la imagen del modal
+});
 
-    // Cambiar las imágenes del carrusel
-    carouselItems.forEach((item, index) => {
-        console.log('Cambiando imagen', index);
-        if (newImages[index]) {
-            console.log('Nueva imagen:', newImages[index]);
-            item.src = newImages[index]; // Actualiza la fuente de la imagen
+// Campo de búsqueda y tabla
+const searchInput = document.getElementById("searchInput");
+const tableRows = document.querySelectorAll(".table tbody tr");
+
+// Función de búsqueda dinámica
+searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    let found = false;
+
+    // Iterar sobre las filas de la tabla
+    tableRows.forEach((row) => {
+        const cells = row.querySelectorAll("td");
+        const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+        
+        // Buscar coincidencia
+        if (rowText.includes(query)) {
+            found = true;
+            row.style.display = ""; // Mostrar fila
+            row.style.backgroundColor = "#fffa90"; // Resaltar fila
+            setTimeout(() => {
+                row.style.backgroundColor = ""; // Quitar el resaltado después de 2 segundos
+            }, 2000);
+
+            // Hacer scroll hasta la fila
+            row.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+            row.style.display = "none"; // Ocultar filas sin coincidencia
         }
     });
+
+    // Si no se encuentra nada
+    if (!found && query !== "") {
+        console.log("No se encontraron coincidencias.");
+    }
+
+    // Mostrar todas las filas si el campo está vacío
+    if (query === "") {
+        tableRows.forEach(row => (row.style.display = ""));
+    }
 });
 
