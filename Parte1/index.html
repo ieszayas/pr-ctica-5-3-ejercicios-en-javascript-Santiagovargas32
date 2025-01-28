@@ -51,11 +51,6 @@
                 <div id="clock" class="text-light me-3"></div>
                 <!-- Botón de Modo Oscuro/Claro -->
                 <button id="themeToggle" class="btn btn-outline-light">Modo Oscuro</button>
-                <!-- Campo de búsqueda -->
-                <div class="search-container">
-                    <input type="text" id="searchInput" class="form-control form-control-sm search-input"
-                        placeholder="Buscar...">
-                </div>
             </div>
         </div>
     </nav>
@@ -117,6 +112,12 @@
             <!-- Left Column: Table -->
             <div class="col-md-8">
                 <h2 class="text-center my-4" id="listadoCoches">Listado de Coches</h2>
+                <!-- Campo de búsqueda -->
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="form-control form-control-sm search-input"
+                        placeholder="Buscar...">
+                </div>
+                <br>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -246,6 +247,10 @@
                         </div>
                         <small class="text-danger d-none" id="checkboxError">Debe seleccionar al menos un
                             checkbox.</small>
+                        <div class="mb-3 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary w-100" id="submitForm">Enviar</button>
+                            <button type="button" class="btn btn-secondary w-100" id="clearForm">Limpiar</button>
+                        </div>
                     </div>
                 </form>
                 <!-- Toast Container -->
