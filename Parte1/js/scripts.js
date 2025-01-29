@@ -216,3 +216,14 @@ searchInput.addEventListener("input", function () {
     }
 });
 
+document.getElementById("clearForm").addEventListener("click", function () {
+    let form = document.getElementById("contactForm");
+    form.reset(); // Resetea el formulario
+
+    // Oculta todos los mensajes de error
+    let errorMessages = document.querySelectorAll(".text-danger");
+    errorMessages.forEach(function (error) {
+        error.classList.add("d-none");
+    });
+});
+
