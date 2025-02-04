@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const searchInput = document.getElementById("searchInput");
 
     // 🚗 Marcas de coches a buscar
-    const carBrands = ["Toyota", "Ford", "Chevrolet", "BMW", "Mercedes-Benz", "Honda"];
+    const carBrands = ["Toyota", "Ford", "Audi", "BMW", "Mercedes-Benz", "Honda"];
     console.log("Marcas a buscar:", carBrands);
 
     // 🔄 Función para obtener coches de la API
