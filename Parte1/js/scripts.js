@@ -188,7 +188,7 @@ searchInput.addEventListener("input", function () {
     tableRows.forEach((row) => {
         const cells = row.querySelectorAll("td");
         const rowText = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
-        
+
         // Buscar coincidencia
         if (rowText.includes(query)) {
             found = true;
