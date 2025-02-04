@@ -227,3 +227,79 @@ document.getElementById("clearForm").addEventListener("click", function () {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", async () => {
+    console.log("DOM completamente cargado");
+
+    const API_KEY = "i8lEGWNN9A8667U5OBCavw==gtRNtvbINvdHTD1G"; // Reemplázalo con tu API Key 
+    const tableBody = document.querySelector("tbody");
+    const searchInput = document.getElementById("searchInput");
+
+    // 🚗 Marcas de coches a buscar
+    const carBrands = ["Toyota", "Ford", "Chevrolet", "BMW", "Mercedes-Benz", "Honda"];
+    console.log("Marcas a buscar:", carBrands);
+
+    // 🔄 Función para obtener coches de la API
+    async function fetchCars(brand) {
+        console.log(`Buscando coches de la marca: ${brand}`);
+        try {
+            const response = await fetch(`https://api.api-ninjas.com/v1/cars?make=${brand}`, {
+                headers: { "X-Api-Key": API_KEY }
+            });
+
+            if (!response.ok) throw new Error("Error en la API");
+
+            const data = await response.json();
+            console.log(`Datos recibidos para ${brand}:`, data);
+            return data;
+        } catch (error) {
+            console.error("Error al obtener datos:", error);
+            return [];
+        }
+    }
+
+    // 🏎️ Función para renderizar coches en la tabla
+    async function loadCars() {
+        console.log("Cargando coches en la tabla...");
+        tableBody.innerHTML = ""; // Limpiar la tabla antes de actualizar
+        let counter = 1;
+
+        for (const brand of carBrands) {
+            console.log(`Procesando marca: ${brand}`);
+            const cars = await fetchCars(brand);
+
+            cars.forEach(car => {
+                console.log(`Agregando coche: ${car.model}, Año: ${car.year}`);
+                const row = `
+                    <tr>
+                        <td>${counter++}</td>
+                        <td>${car.model}</td>
+                        <td>${car.year}</td>
+                        <td>${car.class}</td>
+                        <td>${car.price ? `$${car.price.toLocaleString()}` : "N/A"}</td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+        console.log("Carga de coches completada");
+    }
+
+    // Filtro de búsqueda en la tabla
+    searchInput.addEventListener("keyup", function () {
+        console.log("⌨️ Filtrando por:", searchInput.value);
+        const filter = searchInput.value.toLowerCase();
+        const rows = tableBody.querySelectorAll("tr");
+
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(filter) ? "" : "none";
+        });
+    });
+
+    // Cargar coches al cargar la página
+    await loadCars();
+});
+
+
+
