@@ -300,6 +300,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Cargar coches al cargar la página
     await loadCars();
 });
-
-
-
